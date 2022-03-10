@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS digitech;
+CREATE DATABASE digitech;
