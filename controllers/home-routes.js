@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment } = require("../models");
+const { Blog, User, Comment } = require("../models");
 
 router.get("/", (req, res) => {
-  Post.findAll({
+  Blog.findAll({
     attributes: [],
     include: [
       {
@@ -12,10 +12,10 @@ router.get("/", (req, res) => {
       {},
     ],
   })
-    .then((dbPostData) => {
-      console.log(dbPostData[0]);
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { posts });
+    .then((dbBlogData) => {
+      console.log(dbBlogData[0]);
+      const blogs = dbBlogData.map((post) => post.get({ plain: true }));
+      res.render("homepage", { blogs });
     })
     .catch((err) => {
       console.log(err);
