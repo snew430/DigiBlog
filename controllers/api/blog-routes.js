@@ -43,17 +43,11 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Blog.update(
-    {
-      title: req.body.title,
-      blog_text: req.body.title,
+  Blog.update(req.body, {
+    where: {
+      id: req.params.id,
     },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
+  })
     .then((dbBlogData) => {
       if (!dbBlogData) {
         res.status(404).json({ message: "No blog found with this id" });
