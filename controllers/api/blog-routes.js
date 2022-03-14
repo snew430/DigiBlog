@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog } = require("../../models");
+const { Blog, User, Comment } = require("../../models");
 
 router.get("/", (req, res) => {
   Blog.findAll({
@@ -55,9 +55,9 @@ router.post("/", (req, res) => {
   Blog.create({
     title: req.body.title,
     blog_text: req.body.blog_text,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbBlogData) => res.json(dbBlogData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
