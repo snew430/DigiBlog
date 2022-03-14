@@ -18,6 +18,7 @@ router.get("/", withAuth, (req, res) => {
         attributes: ["comment_text", "user_id", "blog_id"],
       },
     ],
+    order: [["createdAt", "DESC"]],
   })
     .then((dbBlogData) => {
       const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
