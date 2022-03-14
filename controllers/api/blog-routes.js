@@ -2,7 +2,18 @@ const router = require("express").Router();
 const { Blog } = require("../../models");
 
 router.get("/", (req, res) => {
-  Blog.findAll({})
+  Blog.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["comment_text", "user_id", "blog_id"],
+      },
+    ],
+  })
     .then((dbBlogData) => res.json(dbBlogData))
     .catch((err) => {
       console.log(err);
@@ -15,6 +26,17 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
+    // attributes: ["id", "title", "blog_text", "user_id", "createdAt"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["comment_text", "user_id", "blog_id"],
+      },
+    ],
   })
     .then((dbBlogData) => {
       if (!dbBlogData) {

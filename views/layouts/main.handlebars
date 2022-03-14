@@ -4,24 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>DigiTech</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-  <div class="wrapper">
+  <div>
     <header>
-      <h1>
-        <a href="/">Just Tech News</a>
-      </h1>
+      <div>
+        <h1>
+          <a href="/">DigiTech</a>
+        </h1>
+        <h6>(short for digital tech)</h6>
+      </div>
+         <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting!
+      Thanks for supporting our online family here to support you!
     </footer>
   </div>
+
+  {{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 
 </body>
 
