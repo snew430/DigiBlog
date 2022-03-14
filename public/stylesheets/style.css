@@ -13,7 +13,7 @@ html {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #8e7f2e;
   font-weight: bold;
   transition: color 0.1s;
 }
@@ -37,7 +37,7 @@ button:hover {
   background-color: #3486eb;
 }
 
-.post-list {
+.blog-list {
   margin: 0;
   padding: 0;
 }
@@ -66,6 +66,19 @@ form > div {
 
 form label {
   display: block;
+}
+
+.logo {
+  border: solid #333;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  margin: 10px;
+  background-color: #7d7d7d;
+  color: #ebf525;
+}
+.logo a {
+  color: #ebf525;
 }
 
 .wrapper {
@@ -100,7 +113,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #8e7f2e;
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
@@ -112,20 +125,20 @@ main {
   color: #3486eb;
 }
 
-.delete-post-btn {
+.delete-blog-btn {
   background-color: #d41414;
 }
 
-.delete-post-btn:hover {
+.delete-blog-btn:hover {
   background-color: #ff643d;
 }
 
-.post {
+.blog {
   margin-bottom: 2%;
   line-height: 150%;
 }
 
-.post .title span {
+.blog .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
@@ -150,9 +163,7 @@ main {
 }
 
 .comment .meta {
-  font-size: 90%;
-  margin-bottom: 0.5%;
-  opacity: 0.6;
+  font-size: 5px;
 }
 
 .new-blog-form input {
@@ -177,4 +188,14 @@ footer {
 
 .blog-text {
   height: 20px;
+}
+
+.commentInfo {
+  font-size: 1rem;
+}
+
+.blogText {
+  border: solid #333 1px;
+  border-radius: 5px;
+  padding: 5px;
 }
